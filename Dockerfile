@@ -8,7 +8,7 @@ RUN apt-get install -y nodejs git libcairo2-dev libjpeg-dev libgif-dev build-ess
 
 
 
-RUN git clone https://github.com/rockie-yang/voyager.git
+RUN git clone https://github.com/vega/voyager.git
 
 # Install yarn using npm, due to https://github.com/yarnpkg/yarn/issues/2821
 RUN npm install -g yarn \
@@ -22,6 +22,10 @@ RUN yarn cache clean \
   	&& rm -rf /tmp/* \
   	&& rm -rf ~/.m2 ~/.npm ~/.cache \
   	&& rm -rf /var/lib/{apt,dpkg,cache,log}/
+
+# Adjust scripts to expose this service to external hosts/nodes
+RUN sed -i '$s/devServer: {/devServer: {\n\thost: \'0.0.0.0\',/' /voyager/config/webpack.config.dev.js
+RUN sed -i '$s/devServer: {/devServer: {\n\thost: \'0.0.0.0\',/' /voyager/config/webpack.config.lib.js
 
 WORKDIR /voyager
 
