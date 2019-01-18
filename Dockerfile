@@ -14,7 +14,7 @@ RUN git clone https://github.com/vega/voyager.git
 RUN npm install -g yarn \
 	&& cd /voyager \
 	&& yarn \
-	&& yarn build \
+	&& yarn build
 
 RUN yarn cache clean \
 	&& apt-get clean autoclean \
