@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk add --update --no-cache npm git python make gcc
+RUN apk add --update --no-cache npm git python make gcc g++ cairo-dev libjpeg-turbo-dev pango-dev giflib-dev
 
 
 
