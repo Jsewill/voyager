@@ -1,10 +1,6 @@
-FROM debian
+FROM alpine
 
-RUN apt-get update &&  apt-get install -y curl vim gnupg
-
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - 
-
-RUN apt-get install -y nodejs git libcairo2-dev libjpeg-dev libgif-dev build-essential
+RUN apk add --update --no-cache npm git python
 
 
 
@@ -17,8 +13,6 @@ RUN npm install -g yarn \
 	&& yarn build
 
 RUN yarn cache clean \
-	&& apt-get clean autoclean \
-  	&& apt-get autoremove -y --force-yes \
   	&& rm -rf /tmp/* \
   	&& rm -rf ~/.m2 ~/.npm ~/.cache \
   	&& rm -rf /var/lib/{apt,dpkg,cache,log}/
