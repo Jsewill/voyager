@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk add --update --no-cache npm git python
+RUN apk add --update --no-cache npm git python make gcc
 
 
 
