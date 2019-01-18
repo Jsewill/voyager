@@ -21,6 +21,8 @@ RUN yarn cache clean \
 RUN sed -i "s/devServer: {/devServer: {\n    host: '0.0.0.0',/" /voyager/config/webpack.config.dev.js
 RUN sed -i "s/devServer: {/devServer: {\n    host: '0.0.0.0',/" /voyager/config/webpack.config.lib.js
 
+# @TODO: remove unnecessary files after yarn build
+
 WORKDIR /voyager
 
 EXPOSE 9000
