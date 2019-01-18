@@ -24,8 +24,8 @@ RUN yarn cache clean \
   	&& rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 # Adjust scripts to expose this service to external hosts/nodes
-RUN sed -i '$s/devServer: {/devServer: {\n\thost: \'0.0.0.0\',/' /voyager/config/webpack.config.dev.js
-RUN sed -i '$s/devServer: {/devServer: {\n\thost: \'0.0.0.0\',/' /voyager/config/webpack.config.lib.js
+RUN sed -i 's/devServer: {/devServer: {\n    host: \'0.0.0.0\',/' /voyager/config/webpack.config.dev.js
+RUN sed -i 's/devServer: {/devServer: {\n    host: \'0.0.0.0\',/' /voyager/config/webpack.config.lib.js
 
 WORKDIR /voyager
 
