@@ -6,9 +6,9 @@ Voyager 2 is a data exploration tool that blends manual and automated chart spec
 
 Run 
 
-	docker run -p 9000:9000 knockdata/voyager
+	docker run -p 9000:9000 jsewill/voyager
 
 
 Build docker image
 
-	docker build -t knockdata/voyager .
+	docker build -t jsewill/voyager .
